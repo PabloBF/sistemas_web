@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" media="screen" href="{{url_for('static',filename='css/dashboard.css')}}">
+<link rel="stylesheet" media="screen" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+<link rel="stylesheet" media="screen" href="{{url_for('static',filename='css/credores.css')}}">
+<script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+<div class="table-container">
+<br>
+  <a href="#" class="addcredor" onclick="javascript:Novopost('/api/credor/',{label: 'Nome', type: 'text', name: 'nome'},{label: 'Cidade', type: 'text', name: 'cidade'}, 
+{label: 'Estado', type: 'text', name: 'estado'}
+)"> <i class='bx bx-add-to-queue'></i> Novo Credor</a>
+
+  <table class="table table-hover table-striped table-bordered lucros" id="lucros">
+    <thead class="table-dark">
+      <tr class="table-dark">
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Titulos</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="hidden">
+        <td class="hidden">0</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td> 
+        </tr>
+        {% for credor in credores %}
+        <tr>
+        <td class="noeditable">{{credor.id}}</td>
+        <td>{{ credor.nome }}</td>
+        <td> {{credor.cidade}}</td>
+        <td>{{credor.estado}}</td>
+        <td class="noeditable">{{credor.titles | length }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<script src="{{url_for('static', filename='js/tabela-edit.js')}}"></script>
+<script>
+$(document).ready(function(){
+    var posturl = "/api/credor/";
+    var tableId = "lucros";
+    var csrfToken = "{{ csrf_token() }}";  
+    makeEditable(posturl, tableId, csrfToken);
+});
+</script>
+<script src="{{url_for('static',filename='js/dashboard.js')}}"></script>
+{% endblock %}

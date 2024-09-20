@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<link rel="stylesheet" media="screen" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+<link rel="stylesheet" media="screen" href="{{url_for('static', filename='css/dashboard.css')}}">
+<link href="https://fonts.cdnfonts.com/css/chancery-cursive" rel="stylesheet">
+<div class="dash" style="display: flex; justify-content: space-between;">
+
+
+    <div id="calendar" class="p-3" style="flex: 1; margin-right: 20px;">
+        <h3 class="text-center">Calendario</h3>
+        <div class="text-center">
+            <table id="calendar-table" class="table table-bordered  rounded table-dark">
+              
+            </table>
+        </div>
+    </div>
+
+    <div id="random-phrase" class="p-3" style="flex: 1;">
+        <h3 class="text-center">Frase Aleatoria:</h3>
+        <div class="text-center">
+            <p class="text-center" id="phrase-display"></p>
+        </div>
+    </div>
+
+    <script>
+        // NOTE: frases aleatorias
+    const phrases = [
+        "Continue avancando!",
+        "Acredite em si mesmo.",
+        "Todo dia e uma nova oportunidade.",
+        "Mantenha-se positivo, trabalhe duro, faca acontecer.",
+        "O sucesso e uma jornada, nao um destino."];
+
+
+        function showRandomPhrase() {
+            const phraseDisplay = document.getElementById('phrase-display');
+            const randomIndex = Math.floor(Math.random() * phrases.length);
+            phraseDisplay.textContent = phrases[randomIndex];
+        }
+
+        showRandomPhrase();
+
+    
+        function generateCalendar() {
+            const calendarTable = document.getElementById('calendar-table');
+            const currentDate = new Date();
+            const today = currentDate.getDate();
+            const month = currentDate.getMonth();
+            const year = currentDate.getFullYear();
+            const daysOfWeek = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
+            let thead = '<thead><tr >';
+            for (let day of daysOfWeek) {
+                thead += `<th class="text-center daytitle">${day}</th>`;
+            }
+            thead += '</tr></thead>';
+            calendarTable.innerHTML = thead;
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            let tbody = '<tbody><tr>';
+            for (let i = 0; i < firstDay; i++) {
+                tbody += '<td></td>';
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                if ((firstDay + day - 1) % 7 === 0) {
+                    tbody += '</tr><tr>';
+                }
+                if (day === today) {
+                    tbody += `<td class="text-center currentday">${day}</td>`;
+                } else {
+                    tbody += `<td class="text-center">${day}</td>`;
+                }
+            }
+
+            tbody += '</tr></tbody>';
+            calendarTable.innerHTML += tbody;
+        }
+
+        generateCalendar();
+    </script>
+
+</div>
+
+<div class="comment"><i class="note1">📘 NOTE:</i>Coloquei itens atoa e sem funcionalidade para nao complicar o codigo</div>

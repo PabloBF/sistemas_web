@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" media="screen" href="{{url_for('static',filename='css/dashboard.css')}}">
+<script src="{{url_for('static',filename='js/dashboard.js')}}"></script>
+<!-- INFO: Navbar no Topo -->
+<nav class="navmain">
+  <a class="navbar-brand text-white ms-auto" href="javascript:void()" onclick="window.location.href='/logout'">
+    Logout <i class='bx bxs-door-open'></i>
+  </a>
+</nav>
+<div class="flexmain">
+    <!-- INFO: Menu Lateral -->
+    <div style="" class="sidebar">
+      <br>
+      <ul class="panel">
+        <li class="panelclicked" onclick="carregarPagina('/dash')">
+          <i class='bx bxs-dashboard'></i> Dashboard
+        </li>
+        <li class="nav-item" id="credores" onclick="carregarPagina('/credores')">
+          <i class='bx bxs-user-detail'></i> Credores
+        </li>
+        <li class="nav-item" id="contas" onclick="carregarPagina('/contas')">
+          <i class='bx bx-credit-card'></i> Contas
+        </li>
+        <li class="nav-item" id="relatorios" onclick="carregarPagina('/report')">
+          <i class='bx bxs-pie-chart-alt-2'></i> Relatórios
+        </li>
+      </ul>
+    </div>
+
+<!-- INFO:Conteúdo Principal -->
+<iframe id="main" style="flex-grow: 1;position: relative; z-index: 8;" src="" class="mainframe"></iframe>
+</div>
+<script>carregarPagina('/dash')</script>
+{% endblock %}

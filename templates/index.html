@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+{% block content %}
+    <style>
+        /* Centraliza a página de login */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ajusta o tamanho do formulário */
+        .login-form {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body class="bg-secondary">
+    <div class="container login-container">
+        <div class="login-form card shadow-sm p-4 bg-dark text-white">
+            <h2 class="mb-4 text-center">Login</h2>
+            <form id="loginForm" action="/auth" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuário:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+        
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+        
+            <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="errorModalLabel">Erro</h5>
+                            <button type="button" class="close" id="closeModalButton" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-warn">
+                            Usuário ou senha errada.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="closeModalButtonFooter">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                $(document).ready(function() {
+                    $('#loginForm').on('submit', function(event) {
+                        event.preventDefault(); // Previne o envio padrão do formulário
+                        
+                        $.ajax({
+                            type: 'POST',
+                            url: $(this).attr('action'),
+                            data: $(this).serialize(),
+                            success: function(response) {
+                                if (response.success) {
+                                    window.location.reload(); // Recarrega a página atual se a resposta for verdadeira
+                                } else {
+                                    $('#errorModal').modal('show'); // Exibe o modal com a mensagem de erro se a resposta for falsa
+                                }
+                            },
+                            error: function() {
+                                $('#errorModal').modal('show'); // Exibe o modal em caso de erro na requisição
+                            }
+                        });
+                    });
+        
+                    // Adiciona o manipulador de eventos para o botão de fechar
+                    $('#closeModalButton, #closeModalButtonFooter').on('click', function() {
+                        $('#errorModal').modal('hide');
+                    });
+                });
+            </script>
+
+
+
+
+
+
+        </div></div>
+
+
+{% endblock %}

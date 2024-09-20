@@ -1,0 +1,21 @@
+<!-- INFO: corpo base do html , que sera usado em outros templates  -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="{{url_for('static', filename='js/jquery-3.7.1.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <link rel="stylesheet" media="screen" href="{{url_for('static', filename='css/boxicons.css')}}">
+  <link rel="stylesheet" media="screen" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+ <style>
+.mainframe{
+  background-color:#a8a5a5 ;
+}
+</style>
+  <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+  {% block content %} {% endblock %} 
+</body>
+</html>
