@@ -1,3 +1,20 @@
+<p align="center">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="/img/ifce/logo-vertical-branca_media.png">
+        <source media="(prefers-color-scheme: light)" srcset="/img/ifce/logo-vertical-colorida_media.png">
+        <img alt="IFCE" width="100" src="/img/ifce/logo-vertical-colorida_media.png">
+    </picture>
+</p>
+
+<p align="center"><b>INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO CEARÁ</b><br>
+<b><i>CAMPUS</i> FORTALEZA</b><br>
+<b>TECNOLOGIA EM TELEMÁTICA</b></p>
+
+<p align="center">PABLO BUSATTO<br>
+GABRIEL SACRAMENTO<br>
+OTTO BRAGA E MELLO</p>
+
+
 - [x] Descrição dos requisitos funcionais do sistemas (opções e funcionalidades);
 
 - python3    #utilizado python na versao mais recente disponivel
