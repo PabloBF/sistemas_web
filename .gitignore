@@ -1,0 +1,6 @@
+# Ignorar a pasta node_modules
+node_modules/
+
+# Ignorar a pasta __pycache__
+__pycache__/
+venv/
