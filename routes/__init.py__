@@ -1,0 +1,12 @@
+# routes/__init__.py
+from flask import Blueprint
+
+# Import all routes dynamically
+import os
+import importlib
+
+routes_dir = os.path.dirname(__file__)
+for filename in os.listdir(routes_dir):
+    if filename.endswith('.py') and filename != '__init__.py':
+        module_name = f'routes.{filename[:-3]}'
+        importlib.import_module(module_name)
