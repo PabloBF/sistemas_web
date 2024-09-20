@@ -1,0 +1,125 @@
+  .bg-navbar{
+    background-color:black;
+    color:white;
+  }
+.panel{
+    align-content: center;
+
+    
+}
+body {
+  background-color:#a8a5a5 ;
+}
+.panel li{
+  list-style-type: none;
+    width:90%;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    font-size: 24px;
+        margin-bottom: 9px; 
+        margin-top: 9px;
+        border-radius: 4px;
+    
+}
+.panel li:hover{
+background-color:#7a34eb;
+    
+}
+.panelclicked{
+    background-color:#0D6EFD;
+    border-radius: 4px;
+    
+}
+
+
+.sidebar{
+  background-color: #343a40; /* ou outra cor desejada */
+  color: white;
+  width: 20%;
+  position: relative;
+  z-index: 9;
+}
+.flexmain{
+  display: flex; 
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #7a34eb;
+}
+.mainframe{
+  width:100%;
+  height: 100%;
+background-color:#a8a5a5 ;
+}
+.navmain{
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  background-color: #131313; 
+  color: white; 
+  padding: 10px 20px; 
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+
+}
+.hidden{
+  display: none;
+}
+.currentday{
+  background-color: blue;
+  border-radius: 4px;
+}
+#calendar-table {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  min-height: 350px;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+  background-color: #131313;
+}
+
+
+#phrase-display {
+  font-family: 'Chancery Cursive', sans-serif;
+  text-align: center;
+  border-radius: 6px;
+  min-height: 200px;
+  max-height: 200px;
+  font-size: 30px;
+  background-color: aliceblue;
+  font-style: italic;
+  font-weight: bold;
+  padding-top: 20px;
+
+}
+
+.daytitle{
+  color: #0D6EFD;
+  border-radius: 6px;
+}
+.note1{
+  "color": "#ecf0f1",
+  "border": "1px solid #2980b9",
+  "borderRadius": "4px",
+  "backgroundColor": "#3498db",
+}
+.comment {
+  background-color: #797979;
+  border-radius: 4px;
+  font-weight: bolder;
+  font-style: italic;
+  line-height: 40px;
+  height: 40px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center; /* Alinha o conteúdo no centro horizontalmente */
+}

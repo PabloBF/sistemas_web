@@ -1,0 +1,36 @@
+.credores{
+  padding: 20px;
+  width: 96%;
+  height: 100%;
+  margin:0 auto;
+  background-color: inherit;
+}
+
+.table-wrapper {
+    max-height: 400px; /* Defina a altura máxima desejada */
+    overflow-y: auto; /* Permite o scroll vertical */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Mantém o cabeçalho acima do conteúdo ao rolar */
+    background-color: #343a40; /* Cor de fundo para o thead (thead-dark) */
+    color: #fff; /* Cor do texto no cabeçalho */
+}
+.addcredor{
+    background-color: rgb(63, 113, 153);
+    border-radius: 4px;
+    float: right;
+    margin:6px;
+    margin-right: 12px;
+    text-decoration:none;
+    color:white;
+    padding: 8px;
+
+}
